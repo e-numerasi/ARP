@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQ Numerasi Assessment - Corrected Numbering</title>
+    <title>AQ Numerasi Assessment - Updated 2025</title>
     <style>
         * {
             margin: 0;
@@ -77,6 +77,48 @@
             padding: 15px;
             margin: 20px 0;
             text-align: center;
+        }
+
+        .category-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .category-info h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .category-item {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid;
+        }
+
+        .category-quitter {
+            background: rgba(255, 107, 107, 0.2);
+            border-color: #ff6b6b;
+        }
+
+        .category-camper {
+            background: rgba(78, 205, 196, 0.2);
+            border-color: #4ecdc4;
+        }
+
+        .category-climber {
+            background: rgba(149, 225, 211, 0.2);
+            border-color: #95e1d3;
         }
 
         .form-container {
@@ -236,9 +278,9 @@
             margin: 20px 0;
         }
 
-        .score-high { color: #00ff00; }
-        .score-medium { color: #ffff00; }
-        .score-low { color: #ff6b6b; }
+        .score-quitter { color: #ff6b6b; }
+        .score-camper { color: #4ecdc4; }
+        .score-climber { color: #95e1d3; }
 
         .personal-info {
             display: grid;
@@ -371,16 +413,6 @@
             color: #ff0000;
         }
 
-        .debug-info {
-            background: rgba(255, 255, 0, 0.1);
-            border: 1px solid rgba(255, 255, 0, 0.3);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -395,7 +427,7 @@
                 gap: 15px;
             }
             
-            .personal-info {
+            .personal-info, .category-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -416,30 +448,49 @@
                 Terintegrasi Numerasi - Penilaian Ketahanan Matematika
             </div>
             <div class="version-info">
-                <strong>🚀 Versi Corrected 2025</strong> - Butir 1-36 | Skor Maksimal: 144
-                <br><small>Penomoran butir angket yang benar: 1 sampai 36</small>
-                <br><small>🔗 Data otomatis tersimpan ke Google Sheets</small>
+                <strong>🚀 Versi Updated 2025</strong> - Terintegrasi Google Sheets
+                <br><small>Data otomatis tersimpan ke cloud storage</small>
+            </div>
+            
+            <!-- Category Information -->
+            <div class="category-info">
+                <h3>📊 Kategori AQ (Updated)</h3>
+                <div class="category-grid">
+                    <div class="category-item category-quitter">
+                        <strong>Quitter</strong>
+                        <div style="margin-top: 5px; font-size: 1.2rem;">36 - 85</div>
+                        <small>Perlu Pengembangan</small>
+                    </div>
+                    <div class="category-item category-camper">
+                        <strong>Camper</strong>
+                        <div style="margin-top: 5px; font-size: 1.2rem;">86 - 125</div>
+                        <small>Cukup Baik</small>
+                    </div>
+                    <div class="category-item category-climber">
+                        <strong>Climber</strong>
+                        <div style="margin-top: 5px; font-size: 1.2rem;">126 - 144</div>
+                        <small>Sangat Baik</small>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Form Container -->
         <div class="form-container" id="formContainer">
-            <!-- Step 0: Personal Information (No Scoring) -->
+            <!-- Step 0: Personal Information -->
             <div class="form-step active" id="step0">
                 <h2 style="color: #00d4ff; margin-bottom: 20px; text-align: center;">Informasi Pribadi</h2>
-                <p style="text-align: center; color: #888; margin-bottom: 30px;">
-                    <em>Bagian ini tidak dinilai - hanya untuk identifikasi</em>
-                </p>
                 
                 <div class="instructions">
                     <h3>Petunjuk Pengisian</h3>
                     <ul>
-                        <li>Isi data pribadi terlebih dahulu (tidak ada skor)</li>
-                        <li>Angket dimulai dari butir nomor 1 sampai 36</li>
-                        <li>Setiap butir memiliki skor 1-4</li>
-                        <li>Skor maksimal total: 144 poin (36 × 4)</li>
-                        <li>Jawablah dengan jujur sesuai kondisi Anda</li>
-                        <li>Tidak ada jawaban benar atau salah</li>
+                        <li>Bacalah setiap pernyataan dengan teliti</li>
+                        <li>Berikan respons sesuai dengan frekuensi perilaku Anda dalam menghadapi masalah matematika</li>
+                        <li>Pilihlah kolom yang paling sesuai dengan perilaku anda</li>
+                        <li>Jawablah dengan jujur karena tidak ada jawaban benar atau salah</li>
+                        <li>Pastikan semua pernyataan terjawab</li>
+                        <li>Total terdapat 36 item pernyataan</li>
+                        <li>Data akan otomatis tersimpan ke Google Sheets</li>
                     </ul>
                 </div>
 
@@ -450,7 +501,7 @@
                     </div>
                     <div class="input-group">
                         <label for="kelas">Kelas *</label>
-                        <input type="text" id="kelas" required placeholder="Contoh: XII IPA 1">
+                        <input type="text" id="kelas" required placeholder="Contoh: X-1">
                     </div>
                     <div class="input-group">
                         <label for="whatsapp">Nomor WhatsApp *</label>
@@ -459,20 +510,17 @@
                 </div>
 
                 <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin: 20px 0;">
-                    <h3 style="color: #ff00ff; margin-bottom: 15px;">Sistem Penskoran Angket</h3>
+                    <h3 style="color: #ff00ff; margin-bottom: 15px;">Petunjuk Penskoran</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div>
                             <h4 style="color: #00d4ff;">Pernyataan Positif</h4>
-                            <p>Tidak Pernah: 1 | Jarang: 2 | Sering: 3 | Selalu: 4</p>
+                            <p>Selalu (SL): 4 | Sering (SR): 3 | Jarang (JR): 2 | Tidak Pernah (TP): 1</p>
                         </div>
                         <div>
                             <h4 style="color: #00d4ff;">Pernyataan Negatif</h4>
-                            <p>Tidak Pernah: 4 | Jarang: 3 | Sering: 2 | Selalu: 1</p>
+                            <p>Selalu (SL): 1 | Sering (SR): 2 | Jarang (JR): 3 | Tidak Pernah (TP): 4</p>
                         </div>
                     </div>
-                    <p style="text-align: center; margin-top: 15px; color: #ffff00;">
-                        <strong>📊 Total: 36 butir × 4 poin = 144 skor maksimal</strong>
-                    </p>
                 </div>
             </div>
 
@@ -484,16 +532,16 @@
             <!-- Navigation -->
             <div class="navigation">
                 <button class="btn" id="prevBtn" onclick="previousStep()" disabled>Sebelumnya</button>
-                <button class="btn" id="nextBtn" onclick="nextStep()">Mulai Angket</button>
+                <button class="btn" id="nextBtn" onclick="nextStep()">Mulai Assessment</button>
             </div>
         </div>
 
         <!-- Loading -->
         <div class="loading" id="loading">
             <div class="spinner"></div>
-            <p>Menghitung skor dari 36 butir angket...</p>
-            <p><small>Mengirim data ke Google Sheets...</small></p>
-            <p><small>Memvalidasi skor maksimal 144 poin</small></p>
+            <p>Mengirim data ke Google Sheets...</p>
+            <p><small>Pastikan koneksi internet stabil</small></p>
+            <p><small>Proses ini memerlukan waktu beberapa detik</small></p>
         </div>
 
         <!-- Results Container -->
@@ -502,34 +550,33 @@
             
             <div id="messageContainer"></div>
             
-            <!-- Debug Info -->
-            <div class="debug-info" id="debugInfo" style="display: none;">
-                <h4 style="color: #ffff00;">📊 Debug Information:</h4>
-                <div id="debugContent"></div>
-            </div>
-            
             <div class="results-grid">
                 <div class="result-card">
                     <h3 style="color: #ff00ff;">Skor Total AQ</h3>
                     <div class="score-display" id="totalScore">0</div>
                     <p id="scoreCategory">-</p>
-                    <small>Dari maksimal 144 poin</small>
+                </div>
+                <div class="result-card">
+                    <h3 style="color: #ff00ff;">Skor Interval</h3>
+                    <div class="score-display" id="scoreInterval">0</div>
+                    <p>Dari 36-144</p>
                 </div>
                 <div class="result-card">
                     <h3 style="color: #ff00ff;">Persentase</h3>
                     <div class="score-display" id="scorePercentage">0%</div>
-                    <p>Pencapaian dari skor maksimal</p>
+                    <p>Dari skor maksimal</p>
                 </div>
-                <div class="result-card">
-                    <h3 style="color: #ff00ff;">Level Ketahanan</h3>
-                    <div class="score-display" id="resistanceLevel">-</div>
-                    <p id="levelDescription">-</p>
-                </div>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                <h3 style="color: #ff00ff; margin-bottom: 15px;">Level Ketahanan Matematika</h3>
+                <div class="score-display" id="resistanceLevel" style="font-size: 2.5rem;">-</div>
+                <p id="levelDescription" style="font-size: 1.1rem; color: #b0b0b0;">-</p>
             </div>
 
             <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-top: 30px;">
                 <h3 style="color: #ff00ff; margin-bottom: 15px;">Analisis Dimensi AQ</h3>
-                <div id="dimensionAnalysis"></div>
+                <div id="dimensionAnalysis" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;"></div>
             </div>
 
             <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-top: 30px;">
@@ -541,13 +588,12 @@
                 <button class="btn" onclick="resetAssessment()">Kerjakan Ulang</button>
                 <button class="btn" onclick="downloadResults()" style="background: linear-gradient(45deg, #ff00ff, #cc0099);">Unduh Hasil</button>
                 <button class="btn" onclick="viewSpreadsheet()" style="background: linear-gradient(45deg, #00ff00, #009900);">Lihat Data</button>
-                <button class="btn" onclick="toggleDebug()" style="background: linear-gradient(45deg, #ffff00, #cc9900);">Toggle Debug</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Google Apps Script Web App URL - Restored Feature
+        // Google Apps Script Web App URL
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbye-TkntyXP9kTcqH7HcweNcezqjj1jPuIBEGtKIHMiBK2mdMzVYTskfY66ckB4XKr6/exec';
         const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1WB3JJL0LM1TX2w23MvEMEVr-ZDVabvX712xShWJPIEI/edit';
 
@@ -568,7 +614,7 @@
         window.addEventListener('offline', updateConnectionStatus);
         updateConnectionStatus();
 
-        // AQ Questions - 36 items (numbered 1-36)
+        // AQ Questions - 36 items (NUMBERED 1-36)
         const questions = [
             {
                 id: 1,
@@ -807,23 +853,26 @@
                 const stepQuestions = questions.slice(startIndex, endIndex);
                 
                 let stepHTML = `<h2 style="color: #00d4ff; margin-bottom: 30px; text-align: center;">
-                    Bagian ${step} dari ${totalSteps} (Butir ${startIndex + 1}-${endIndex})
+                    Bagian ${step} dari ${totalSteps} (Item ${startIndex + 1}-${endIndex})
                 </h2>`;
                 
                 stepQuestions.forEach(question => {
                     stepHTML += `
                         <div class="question">
-                            <div class="question-text">
-                                <strong>Butir ${question.id}.</strong> ${question.text}
-                                <br><small style="color: #888;">[${question.type} - ${question.dimension}]</small>
-                            </div>
+                            <div class="question-text">${question.id}. ${question.text}</div>
                             <div class="options">
-                                <div class="scale-labels">
-                                    ${question.type === 'positive' ? 
-                                        '<span>Tidak Pernah (1)</span><span style="text-align: center;">1 &nbsp;&nbsp; 2 &nbsp;&nbsp; 3 &nbsp;&nbsp; 4</span><span>Selalu (4)</span>' :
-                                        '<span>Tidak Pernah (4)</span><span style="text-align: center;">4 &nbsp;&nbsp; 3 &nbsp;&nbsp; 2 &nbsp;&nbsp; 1</span><span>Selalu (1)</span>'
-                                    }
-                                </div>
+                                ${question.type === 'positive' ? 
+                                    `<div class="scale-labels">
+                                        <span>Tidak Pernah</span>
+                                        <span style="text-align: center;">1 &nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp;&nbsp;&nbsp; 4</span>
+                                        <span>Selalu</span>
+                                    </div>` :
+                                    `<div class="scale-labels">
+                                        <span>Selalu</span>
+                                        <span style="text-align: center;">1 &nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp;&nbsp;&nbsp; 4</span>
+                                        <span>Tidak Pernah</span>
+                                    </div>`
+                                }
                                 <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 15px;">
                                     ${[1, 2, 3, 4].map(value => `
                                         <div class="option-group">
@@ -844,7 +893,7 @@
 
         function nextStep() {
             if (currentStep === 0) {
-                // Validate personal information (no scoring)
+                // Validate personal information
                 const nama = document.getElementById('namaLengkap').value.trim();
                 const kelas = document.getElementById('kelas').value.trim();
                 const whatsapp = document.getElementById('whatsapp').value.trim();
@@ -856,9 +905,6 @@
                 
                 personalInfo = { nama, kelas, whatsapp };
                 document.getElementById('progressBar').style.display = 'block';
-                
-                // Update button text for questionnaire
-                document.getElementById('nextBtn').textContent = 'Selanjutnya';
             }
             
             if (currentStep > 0) {
@@ -880,7 +926,7 @@
                 });
                 
                 if (!allAnswered) {
-                    alert('Mohon jawab semua butir pada halaman ini!');
+                    alert('Mohon jawab semua pertanyaan pada halaman ini!');
                     return;
                 }
             }
@@ -934,9 +980,9 @@
             
             const totalSteps = Math.ceil(questions.length / 6) + 1;
             if (currentStep === totalSteps - 1) {
-                nextBtn.textContent = 'Selesai & Lihat Hasil';
+                nextBtn.textContent = 'Selesai & Kirim Data';
             } else if (currentStep === 0) {
-                nextBtn.textContent = 'Mulai Angket';
+                nextBtn.textContent = 'Mulai Assessment';
             } else {
                 nextBtn.textContent = 'Selanjutnya';
             }
@@ -955,20 +1001,17 @@
             formData.append('kelas', results.personalInfo.kelas);
             formData.append('whatsapp', results.personalInfo.whatsapp);
             formData.append('totalScore', results.totalScore);
+            formData.append('intervalScore', results.intervalScore);
             formData.append('percentage', results.percentage);
             formData.append('category', results.category);
-            formData.append('level', results.level);
             formData.append('controlScore', results.dimensionScores.Control.average.toFixed(2));
             formData.append('ownershipScore', results.dimensionScores.Ownership.average.toFixed(2));
             formData.append('reachScore', results.dimensionScores.Reach.average.toFixed(2));
             formData.append('enduranceScore', results.dimensionScores.Endurance.average.toFixed(2));
             formData.append('timestamp', new Date().toLocaleString('id-ID'));
-            formData.append('totalQuestions', results.totalQuestions);
-            formData.append('maxScore', results.maxScore);
             
             try {
                 console.log('🚀 Sending data to Google Sheets:', SCRIPT_URL);
-                console.log('📊 Data being sent:', Object.fromEntries(formData));
                 
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
@@ -976,7 +1019,6 @@
                     body: formData
                 });
                 
-                // Simulate success since we can't read response with no-cors
                 setTimeout(() => {
                     onSaveSuccess({ 
                         message: 'Data berhasil dikirim ke Google Sheets!',
@@ -985,7 +1027,7 @@
                 }, 1500);
                 
             } catch (error) {
-                console.error('⚠️ Error sending data:', error);
+                console.error('❌ Error sending data:', error);
                 setTimeout(() => {
                     onSaveFailure({ 
                         message: 'Koneksi bermasalah, tapi data masih bisa dilihat di layar ini.' 
@@ -1021,89 +1063,66 @@
         }
 
         function calculateResults() {
-            console.log('🧮 Starting calculation for items 1-36...');
-            
             let totalScore = 0;
             const dimensionScores = {
-                Control: { rawScore: 0, count: 0, items: [] },
-                Ownership: { rawScore: 0, count: 0, items: [] },
-                Reach: { rawScore: 0, count: 0, items: [] },
-                Endurance: { rawScore: 0, count: 0, items: [] }
+                Control: { score: 0, count: 0 },
+                Ownership: { score: 0, count: 0 },
+                Reach: { score: 0, count: 0 },
+                Endurance: { score: 0, count: 0 }
             };
             
-            let debugInfo = [];
-            
-            // Process each response
-            Object.entries(responses).forEach(([questionId, response]) => {
-                const question = questions.find(q => q.id == questionId);
+            Object.values(responses).forEach(response => {
                 let score = response.value;
                 
-                // Apply reverse scoring for negative items
+                // Reverse scoring for negative items
                 if (response.type === 'negative') {
-                    score = 5 - response.value;  // 1→4, 2→3, 3→2, 4→1
+                    score = 5 - score;
                 }
                 
                 totalScore += score;
-                dimensionScores[response.dimension].rawScore += score;
+                dimensionScores[response.dimension].score += score;
                 dimensionScores[response.dimension].count++;
-                dimensionScores[response.dimension].items.push({
-                    id: questionId,
-                    originalValue: response.value,
-                    finalScore: score,
-                    type: response.type
-                });
-                
-                debugInfo.push({
-                    questionId: questionId,
-                    originalValue: response.value,
-                    finalScore: score,
-                    type: response.type,
-                    dimension: response.dimension
-                });
             });
             
             // Calculate dimension averages
             Object.keys(dimensionScores).forEach(dimension => {
                 const dim = dimensionScores[dimension];
-                dim.average = dim.count > 0 ? (dim.rawScore / dim.count) : 0;
+                dim.average = dim.count > 0 ? (dim.score / dim.count) : 0;
             });
             
-            const maxScore = 144; // 36 questions × 4 points maximum
+            // Calculate interval score (36-144 range)
+            const intervalScore = Math.round(totalScore);
+            
+            // Calculate percentage
+            const maxScore = 144;
             const percentage = Math.round((totalScore / maxScore) * 100);
             
+            // Determine category based on NEW intervals
             let category, level, description;
-            if (percentage >= 80) {
-                category = 'Tinggi';
-                level = 'Excellent';
+            if (intervalScore >= 126) {
+                category = 'Climber';
+                level = '🏔️ Climber';
                 description = 'Ketahanan sangat baik dalam menghadapi tantangan matematika';
-            } else if (percentage >= 60) {
-                category = 'Sedang';
-                level = 'Good';
-                description = 'Ketahanan baik, masih dapat ditingkatkan';
+            } else if (intervalScore >= 86) {
+                category = 'Camper';
+                level = '⛺ Camper';
+                description = 'Ketahanan cukup baik, masih dapat ditingkatkan';
             } else {
-                category = 'Rendah';
-                level = 'Needs Improvement';
+                category = 'Quitter';
+                level = '⚠️ Quitter';
                 description = 'Perlu pengembangan strategi mengatasi kesulitan matematika';
             }
-            
-            console.log('📊 Calculation complete:', {
-                totalQuestions: Object.keys(responses).length,
-                totalScore: totalScore,
-                maxScore: maxScore,
-                percentage: percentage
-            });
             
             return {
                 personalInfo,
                 totalScore,
-                maxScore,
+                intervalScore,
                 percentage,
                 category,
                 level,
                 description,
                 dimensionScores,
-                debugInfo,
-                totalQuestions: Object.keys(responses).length
+                responses
             };
         }
 
@@ -1111,66 +1130,54 @@
             document.getElementById('resultsContainer').style.display = 'block';
             
             // Update score displays
-            document.getElementById('totalScore').textContent = `${results.totalScore}/${results.maxScore}`;
+            document.getElementById('totalScore').textContent = results.totalScore;
+            document.getElementById('scoreInterval').textContent = results.intervalScore;
             document.getElementById('scorePercentage').textContent = `${results.percentage}%`;
             document.getElementById('resistanceLevel').textContent = results.level;
             document.getElementById('scoreCategory').textContent = results.category;
             document.getElementById('levelDescription').textContent = results.description;
             
-            // Apply color classes
-            const scoreClass = results.percentage >= 80 ? 'score-high' : 
-                             results.percentage >= 60 ? 'score-medium' : 'score-low';
+            // Apply color classes based on category
+            let scoreClass;
+            if (results.category === 'Climber') {
+                scoreClass = 'score-climber';
+            } else if (results.category === 'Camper') {
+                scoreClass = 'score-camper';
+            } else {
+                scoreClass = 'score-quitter';
+            }
             
             document.getElementById('totalScore').className = `score-display ${scoreClass}`;
+            document.getElementById('scoreInterval').className = `score-display ${scoreClass}`;
             document.getElementById('scorePercentage').className = `score-display ${scoreClass}`;
             document.getElementById('resistanceLevel').className = `score-display ${scoreClass}`;
             
-            <!-- Show success message -->
-            if (!document.getElementById('messageContainer').innerHTML) {
-                document.getElementById('messageContainer').innerHTML = `
-                    <div class="success-message">
-                        ✅ Assessment selesai! Skor dari 36 butir berhasil dihitung.
-                        <br><small>📝 ${results.totalQuestions}/36 butir terjawab</small>
-                        <br><small>🎯 Penomoran: Butir 1-36 (bukan 4-39)</small>
-                        <br><small>📊 Skor maksimal: 144 poin</small>
-                    </div>`;
-            }
-            
-            // Generate dimension analysis
-            generateDimensionAnalysis(results);
+            // Display dimension analysis
+            displayDimensionAnalysis(results);
             
             // Generate recommendations
             generateRecommendations(results);
-            
-            // Update debug info
-            updateDebugInfo(results);
         }
 
-        function generateDimensionAnalysis(results) {
+        function displayDimensionAnalysis(results) {
             const dims = results.dimensionScores;
-            let analysis = '';
+            const dimensionAnalysis = document.getElementById('dimensionAnalysis');
             
-            Object.entries(dims).forEach(([dimension, data]) => {
-                const percentage = Math.round((data.average / 4) * 100);
-                const color = percentage >= 75 ? '#00ff00' : percentage >= 50 ? '#ffff00' : '#ff6b6b';
+            let html = '';
+            Object.keys(dims).forEach(dimension => {
+                const avg = dims[dimension].average;
+                let color = avg >= 3 ? '#95e1d3' : avg >= 2.5 ? '#4ecdc4' : '#ff6b6b';
                 
-                analysis += `
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-                        <h4 style="color: ${color};">${dimension}</h4>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>Skor: ${data.rawScore}/${data.count * 4}</span>
-                            <span>Rata-rata: ${data.average.toFixed(2)}/4</span>
-                            <span style="font-weight: bold; color: ${color};">${percentage}%</span>
-                        </div>
-                        <div style="background: rgba(255, 255, 255, 0.1); height: 8px; border-radius: 4px; margin-top: 8px;">
-                            <div style="background: ${color}; height: 100%; width: ${percentage}%; border-radius: 4px; transition: width 0.3s ease;"></div>
-                        </div>
-                        <small style="color: #888;">Butir dalam dimensi ini: ${data.count} item</small>
+                html += `
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px; border-left: 4px solid ${color};">
+                        <h4 style="color: ${color}; margin-bottom: 10px;">${dimension}</h4>
+                        <div style="font-size: 2rem; font-weight: bold; color: ${color};">${avg.toFixed(2)}</div>
+                        <p style="font-size: 0.9rem; color: #b0b0b0;">Dari skala 1-4</p>
                     </div>
                 `;
             });
             
-            document.getElementById('dimensionAnalysis').innerHTML = analysis;
+            dimensionAnalysis.innerHTML = html;
         }
 
         function generateRecommendations(results) {
@@ -1178,74 +1185,34 @@
             const dims = results.dimensionScores;
             
             // Generate specific recommendations based on dimension scores
-            Object.entries(dims).forEach(([dimension, data]) => {
-                if (data.average < 3) {
-                    switch(dimension) {
-                        case 'Control':
-                            recommendations.push("🎯 <strong>Control:</strong> Latih teknik relaksasi dan breathing exercise saat menghadapi soal matematika yang kompleks.");
-                            break;
-                        case 'Ownership':
-                            recommendations.push("🎯 <strong>Ownership:</strong> Kembangkan sikap bertanggung jawab dengan membuat jadwal belajar mandiri dan aktif mencari sumber belajar tambahan.");
-                            break;
-                        case 'Reach':
-                            recommendations.push("🎯 <strong>Reach:</strong> Fokuskan pada satu konsep matematika yang spesifik, jangan generalisasi kesulitan ke seluruh matematika.");
-                            break;
-                        case 'Endurance':
-                            recommendations.push("🎯 <strong>Endurance:</strong> Tingkatkan ketekunan dengan membagi soal kompleks menjadi langkah-langkah kecil yang lebih mudah dikelola.");
-                            break;
-                    }
-                }
-            });
+            if (dims.Control.average < 3) {
+                recommendations.push("🎯 <strong>Control:</strong> Latih teknik relaksasi dan breathing exercise saat menghadapi soal matematika yang kompleks.");
+            }
             
-            // General recommendations based on overall score
-            if (results.percentage >= 80) {
-                recommendations.push("🌟 <strong>Excellent!</strong> Pertahankan ketahanan yang baik dan jadilah mentor untuk teman-teman yang membutuhkan bantuan.");
-            } else if (results.percentage >= 60) {
-                recommendations.push("📈 <strong>Keep Growing:</strong> Fokus pada area yang masih lemah dan tingkatkan dengan latihan konsisten.");
+            if (dims.Ownership.average < 3) {
+                recommendations.push("🎯 <strong>Ownership:</strong> Kembangkan sikap bertanggung jawab dengan membuat jadwal belajar mandiri dan aktif mencari sumber belajar tambahan.");
+            }
+            
+            if (dims.Reach.average < 3) {
+                recommendations.push("🎯 <strong>Reach:</strong> Fokuskan pada satu konsep matematika yang spesifik, jangan generalisasi kesulitan ke seluruh matematika.");
+            }
+            
+            if (dims.Endurance.average < 3) {
+                recommendations.push("🎯 <strong>Endurance:</strong> Tingkatkan ketekunan dengan membagi soal kompleks menjadi langkah-langkah kecil yang lebih mudah dikelola.");
+            }
+            
+            // General recommendations based on category
+            if (results.category === 'Climber') {
+                recommendations.push("🌟 <strong>Excellent - Climber!</strong> Pertahankan ketahanan yang sangat baik dan jadilah mentor untuk teman-teman yang membutuhkan bantuan.");
+            } else if (results.category === 'Camper') {
+                recommendations.push("📈 <strong>Good Job - Camper!</strong> Fokus pada area yang masih lemah dan tingkatkan dengan latihan konsisten untuk mencapai level Climber.");
             } else {
-                recommendations.push("💪 <strong>Building Resilience:</strong> Mulai dengan soal-soal dasar, bangun kepercayaan diri secara bertahap.");
+                recommendations.push("💪 <strong>Building Resilience - Quitter:</strong> Mulai dengan soal-soal dasar, bangun kepercayaan diri secara bertahap untuk naik ke level Camper.");
             }
             
             recommendations.push("📚 <strong>Strategi Umum:</strong> Gunakan aplikasi matematika interaktif dan bergabung dengan kelompok belajar untuk meningkatkan motivasi.");
             
             document.getElementById('recommendations').innerHTML = recommendations.map(rec => `<p style="margin-bottom: 15px; line-height: 1.6;">${rec}</p>`).join('');
-        }
-
-        function updateDebugInfo(results) {
-            const debugContent = `
-                <strong>System Validation:</strong><br>
-                ✓ Question numbering: 1-36 (corrected)<br>
-                ✓ Personal info: No scoring<br>
-                ✓ Assessment items: 36 items<br>
-                ✓ Max possible score: 144 points<br><br>
-                
-                <strong>Current Results:</strong><br>
-                Total Items Answered: ${results.totalQuestions}/36<br>
-                Raw Total Score: ${results.totalScore}<br>
-                Maximum Score: ${results.maxScore}<br>
-                Percentage: ${results.percentage}%<br><br>
-                
-                <strong>Dimension Breakdown:</strong><br>
-                ${Object.entries(results.dimensionScores).map(([dim, data]) => 
-                    `${dim}: ${data.rawScore}/${data.count * 4} (avg: ${data.average.toFixed(2)}, items: ${data.count})`
-                ).join('<br>')}
-                <br><br>
-                
-                <strong>Sample Scoring:</strong><br>
-                ${results.debugInfo.slice(0, 6).map(item => 
-                    `Item ${item.questionId}: Input ${item.originalValue} → Score ${item.finalScore} (${item.type})`
-                ).join('<br>')}
-                
-                <br><br><strong>Validation:</strong><br>
-                Score ≤ 144: ${results.totalScore <= 144 ? '✅ Valid' : '❌ Error'}<br>
-                All items 1-36: ${results.totalQuestions === 36 ? '✅ Complete' : `⚠️ ${results.totalQuestions}/36`}
-            `;
-            document.getElementById('debugContent').innerHTML = debugContent;
-        }
-
-        function toggleDebug() {
-            const debugDiv = document.getElementById('debugInfo');
-            debugDiv.style.display = debugDiv.style.display === 'none' ? 'block' : 'none';
         }
 
         function resetAssessment() {
@@ -1258,7 +1225,6 @@
                 document.getElementById('formContainer').style.display = 'block';
                 document.getElementById('progressBar').style.display = 'none';
                 document.getElementById('messageContainer').innerHTML = '';
-                document.getElementById('debugInfo').style.display = 'none';
                 
                 // Reset form
                 document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
@@ -1279,53 +1245,50 @@
         function downloadResults() {
             const results = calculateResults();
             const report = `
-HASIL ASSESSMENT ADVERSITY QUOTIENT NUMERASI (CORRECTED VERSION)
-================================================================
+HASIL ASSESSMENT ADVERSITY QUOTIENT NUMERASI
+===========================================
 
-INFORMASI PRIBADI (Tidak Dinilai):
+INFORMASI PRIBADI:
 Nama: ${results.personalInfo.nama}
 Kelas: ${results.personalInfo.kelas}
 WhatsApp: ${results.personalInfo.whatsapp}
 Tanggal: ${new Date().toLocaleDateString('id-ID')}
 Waktu: ${new Date().toLocaleTimeString('id-ID')}
 
-HASIL SKOR ANGKET:
-Butir yang Dijawab: ${results.totalQuestions}/36
-Skor Total: ${results.totalScore}/${results.maxScore}
+HASIL SKOR:
+Skor Total: ${results.totalScore}
+Skor Interval: ${results.intervalScore}
 Persentase: ${results.percentage}%
 Kategori: ${results.category}
 Level Ketahanan: ${results.level}
 
-SISTEM PENSKORAN:
-✓ Penomoran Butir: 1 sampai 36 (bukan 4-39)
-✓ Informasi Pribadi: Tidak ada skor
-✓ Butir Angket: 36 item dengan skor 1-4
-✓ Skor Maksimal Teoritis: 144 poin (36 × 4)
-✓ Reverse Scoring: Diterapkan untuk item negatif
+KATEGORI BERDASARKAN INTERVAL:
+- Quitter: 36-85 (Perlu Pengembangan)
+- Camper: 86-125 (Cukup Baik)
+- Climber: 126-144 (Sangat Baik)
 
 ANALISIS DIMENSI AQ:
-- Control: ${results.dimensionScores.Control.rawScore}/${results.dimensionScores.Control.count * 4} (rata-rata: ${results.dimensionScores.Control.average.toFixed(2)}/4)
-- Ownership: ${results.dimensionScores.Ownership.rawScore}/${results.dimensionScores.Ownership.count * 4} (rata-rata: ${results.dimensionScores.Ownership.average.toFixed(2)}/4)
-- Reach: ${results.dimensionScores.Reach.rawScore}/${results.dimensionScores.Reach.count * 4} (rata-rata: ${results.dimensionScores.Reach.average.toFixed(2)}/4)
-- Endurance: ${results.dimensionScores.Endurance.rawScore}/${results.dimensionScores.Endurance.count * 4} (rata-rata: ${results.dimensionScores.Endurance.average.toFixed(2)}/4)
+- Control (Kontrol): ${results.dimensionScores.Control.average.toFixed(2)}/4
+- Ownership (Kepemilikan): ${results.dimensionScores.Ownership.average.toFixed(2)}/4
+- Reach (Jangkauan): ${results.dimensionScores.Reach.average.toFixed(2)}/4
+- Endurance (Daya Tahan): ${results.dimensionScores.Endurance.average.toFixed(2)}/4
 
-DESKRIPSI HASIL:
+DESKRIPSI:
 ${results.description}
 
-VALIDASI:
-- Skor tidak melebihi maksimal: ${results.totalScore <= 144 ? 'VALID' : 'ERROR'}
-- Semua butir terjawab: ${results.totalQuestions === 36 ? 'LENGKAP' : 'BELUM LENGKAP'}
+REKOMENDASI:
+Lihat hasil lengkap di aplikasi untuk mendapatkan rekomendasi pengembangan yang spesifik.
 
-================================================================
-Generated by AQ Assessment App (Corrected Numbering) 2025
-Sistem: Butir 1-36 | Info Pribadi Tidak Dinilai | Max 144
+===========================================
+Generated by AQ Assessment App 2025 (Updated)
+Data tersimpan di: ${SPREADSHEET_URL}
             `;
             
             const blob = new Blob([report], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `AQ_Assessment_Corrected_${results.personalInfo.nama.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.txt`;
+            a.download = `AQ_Assessment_${results.personalInfo.nama.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.txt`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -1340,10 +1303,6 @@ Sistem: Butir 1-36 | Info Pribadi Tidak Dinilai | Max 144
         document.addEventListener('DOMContentLoaded', function() {
             generateQuestionSteps();
             updateConnectionStatus();
-            console.log('🚀 AQ Assessment initialized - Corrected numbering version');
-            console.log('📝 Personal info: No scoring');
-            console.log('📊 Assessment items: 1-36 (36 items)');
-            console.log('🎯 Maximum possible score: 144 points');
             
             // Auto-save to localStorage as backup
             setInterval(() => {
